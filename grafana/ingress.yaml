@@ -1,0 +1,29 @@
+---
+# Source: grafana/templates/ingress.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: apm
+  labels:
+    app: grafana
+    chart: grafana-4.4.0
+    release: grafana
+    heritage: Helm
+  annotations:
+    kubernetes.io/ingress.class: nsx
+    ncp/use-regex: "true"
+spec:
+  tls:
+    - hosts: 
+      - APMURLDOTCOM
+      secretName: grafana-tls-secret
+  rules:
+    - host: APMURLDOTCOM
+      http:
+        paths:
+
+          - path: /grafana/(.*)
+            backend:
+              serviceName: grafana
+              servicePort: 80

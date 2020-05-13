@@ -1,0 +1,29 @@
+---
+# Source: prometheus/templates/server-ingress.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nsx
+    ncp/use-regex: "true"
+  labels:
+    component: "server"
+    app: prometheus
+    release: prometheus
+    chart: prometheus-10.3.1
+    heritage: Helm
+  name: prometheus-server
+spec:
+  rules:
+    - host: URLDOTCOM
+      http:
+        paths:
+
+          - path: /(.*)
+            backend:
+              serviceName: prometheus-server
+              servicePort: 80
+  tls:
+    - hosts:
+      - URLDOTCOM
+      secretName: prometheus-server-tls
