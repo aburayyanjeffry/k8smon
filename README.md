@@ -3,8 +3,11 @@ A quick way to deploy Prometheus and Grafana for K8s monitoring
 
 # Prerequisites
 1. You need to know these info
+	
 	i. Base URL
+	
 	ii. Storage class name
+	
 	iii. Environtment. DEV or PRD?
 
 2. You need to load the required container images to you repo
