@@ -1,5 +1,5 @@
 # k8smon
-A quick way to deploy Prometheus and Grafana for K8s monitoring
+A quick way to deploy Prometheus and Grafana for K8s monitoring for those who can't use helm for some reason
 
 # Prerequisites
 1. You need to know these info
